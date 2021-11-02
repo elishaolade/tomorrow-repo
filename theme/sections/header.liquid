@@ -1,0 +1,58 @@
+{%- liquid 
+    if section.settings.header_menu
+        assign menu = section.settings.header_menu.handle
+    else
+        assign menu = 'main-menu'
+    endif
+-%}
+<header class="header">
+    <div class="header__inner">
+        <div class="header__section toggle-container">
+            <button class="header__menu-toggle">
+                {%- render 'icon-menu' -%}
+            </button>
+        </div>
+        <div class="header__section">
+            <div class="image-container">
+                <img class="header__logo"
+                     src="{{ section.settings.logo | img_url: 'master' }}"
+                     alt="{{ section.settings.logo.alt }}" 
+                     loading="lazy"/>
+            </div>
+        </div>
+        <div class="header__section header__nav">
+            {% for link in linklists[menu].links %}
+                <a class="header__link" href="{{ link.url }}">{{ link.title }}</a>
+            {% endfor %}
+
+        </div>
+        <div class="header__section">
+            <a href="{{ routes.search_url }}" class="header__search">
+                {%- render 'icon-search' -%}
+            </a>
+            <a href="{{ routes.account_url }}" class="header__account">
+                {%- render 'icon-account' -%}
+            </a>
+            <a href="{{ routes.cart_url }}" class="header__cart">
+                {%- render 'icon-cart' -%}
+            </a>
+        </div>
+    </div>
+  </header>
+{% schema %}
+{
+    "name":"Header",
+    "settings": [
+        {
+            "id":"logo",
+            "type":"image_picker",
+            "label":"Logo"
+        },
+        {
+            "type": "link_list",
+            "id": "header_menu",
+            "label": "Header menu"
+        }
+    ]
+}
+{% endschema %}

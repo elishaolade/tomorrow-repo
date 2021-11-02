@@ -1,0 +1,56 @@
+@use '../../global';
+.header {
+    &__inner {
+        @include global.container;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem 0;
+    }
+    &__section {
+        display: flex;
+        align-items: center;
+        & .nav {
+            display: flex;
+        }
+    }
+    &__nav {
+        display: none;
+    }
+    &__link {
+        margin-right: 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: black;
+        font-family: 'AkzidenzGrotesk-Medium';
+        font-size: .75rem;
+        letter-spacing: 1.5px;
+        &:hover {
+            color: #0F3324;
+        }
+    }
+    &__search,
+    &__account,
+    &__cart {
+        @include global.flex-center;
+    }
+    &__search,
+    &__account {
+        display: none;
+        margin-right: 1.7rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        &__section.toggle-container {
+            display: none;
+        }
+        &__nav {
+            display: flex;
+        }
+        &__search,
+        &__account {
+            display: flex;
+        }
+    }
+}

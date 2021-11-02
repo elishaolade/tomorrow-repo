@@ -1,0 +1,30 @@
+@use './global.scss';
+
+.announcement {
+    font-family: 'AkzidenzGrotesk-Regular';
+    background: #0F3324;
+    color: white;
+    &__inner {
+        @include global.container;
+        @include global.flex-center;
+    }
+    &__content {
+        @include global.flex-center;
+        width: 100%;
+        position: relative;
+        padding: .75rem;
+    }
+    &__aside {
+        display: none;
+        position: absolute;
+        right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .announcement {
+        &__aside {
+            display: block;
+        }
+    }
+}

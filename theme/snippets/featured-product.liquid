@@ -1,0 +1,17 @@
+<div class="featured-product">
+    <div class="featured-product__inner">
+      <div class="featured-product__image-container image-container">
+        <img src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_}}" loading="lazyload">
+      </div>
+      <div class="featured-product__details-container">
+        <h6 class="featured-product__title">{{ product.title }}</h6>
+        <small class="featured-product__small">
+        {%- if product.price_varies -%}
+            {{ product.price_min | money | prepend: 'starting at '}}
+        {%- else -%}
+          {{ product.price | money }}
+        {%- endif -%}
+        </small>
+      </div>
+    </div>
+  </div>

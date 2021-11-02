@@ -1,0 +1,40 @@
+<div class="announcement">
+    <div class="announcement__inner">
+        <div class="announcement__content">
+            <h6 class="announcement__text">{{ section.settings.text }}</h6>
+            <h6 class="announcement__aside">{{ section.settings.aside }}</h6>
+        </div>
+    </div>
+</div>
+{% style %}
+    .announcement {
+        font-family: 'AkzidenzGrotesk-Regular';
+        font-size: .9rem;
+    }
+{% endstyle %}
+{% schema %}
+{
+    "name":"Announcement",
+    "tag":"section",
+    "presets":[
+        {
+            "name":"Announcement",
+            "category":"Banner"
+        }
+    ],
+    "settings":[
+        {
+            "id":"text",
+            "type":"text",
+            "label":"Text",
+            "default": "Free shipping on all orders over $150."
+        },
+        {
+            "id":"aside",
+            "type":"text",
+            "label":"Text",
+            "default": "Questions? We got you."
+        }
+    ]
+}
+{% endschema %}

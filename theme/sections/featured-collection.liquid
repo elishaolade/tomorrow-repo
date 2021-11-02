@@ -1,0 +1,40 @@
+<section class="featured-collection">
+    <div class="featured-collection__inner">
+      <div class="featured-collection__head">
+        <h1 class="featured-collection__title">{{ section.settings.title }}</h1>
+      </div>
+      <div class="featured-collection__body">
+        <div class="featured-collection__track" data-flickity='{ "cellAlign": "center", "contain": true, "prevNextButtons": false, "freeScroll": true, "freeScrollFriction": "0.03" }'>
+            {%- assign collection = collections[section.settings.collection.handle] -%}
+            {%- for product in collection.products -%}
+                {%- render 'featured-product' product: product -%}
+            {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </section>
+  {% schema %}
+  {
+      "name":"Featured collection",
+      "settings":[
+          {
+            "id":"title",
+            "type":"text",
+            "label":"Title",
+            "placeholder":"Title",
+            "default":"Our top selling frames"
+          },
+          {
+              "id":"collection",
+              "type":"collection",
+              "label":"Collection"
+          }
+      ],
+      "presets":[
+          {
+              "name":"Featured collection",
+              "category":"Collection"
+          }
+      ]
+  }
+  {% endschema %}

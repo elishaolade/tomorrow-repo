@@ -1,0 +1,38 @@
+@use '../../global';
+
+.mobile-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transform: translateX(-100%);
+    height: 100vh;
+    background: #0F3324;
+    color: #FFFFFF;
+    z-index: 100;
+    overflow: hidden;
+    transition: transform .3s ease-in-out;
+    &__inner {
+        padding: 3rem 4rem;
+        padding-top: 4.5rem;
+        position: relative;
+    }
+    &__link {
+        display: block;
+        font-family: 'Canela-Regular', serif;
+        font-size: 2.8rem;
+        color: #FFFFFF;
+        text-decoration: none;
+        margin-bottom: 1rem;
+    }
+    &__close {
+        cursor: pointer;
+        font-size: 1rem;
+        color: #FFF;
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+    &.mobile-nav--show {
+        transform:translateX(0);
+    }
+}

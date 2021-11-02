@@ -1,0 +1,20 @@
+{%- liquid 
+    if section.settings.mobile_menu
+        assign menu = section.settings.mobile_menu
+    else
+        assign menu = 'main-menu'
+    endif
+-%}
+{%- render 'mobile-nav', menu: menu-%}
+{% schema %}
+{
+    "name":"Mobile menu",
+    "settings": [
+        {
+            "type":"link_list",
+            "id":"mobile_menu",
+            "label":"Mobile menu"
+        }
+    ]
+}
+{% endschema %}

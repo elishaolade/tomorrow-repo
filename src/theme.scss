@@ -1,0 +1,10 @@
+/**
+NOTE: styles.scss gets converted to theme.css
+**/
+@use './reset.css';
+@use './global';
+@use './components/announcement/announcement-bar';
+@use './components/header/header';
+@use './components/hero/hero';
+@use './components/featured-collection/featured-collection';
+@use './components/mobile-nav/mobile-nav.scss';

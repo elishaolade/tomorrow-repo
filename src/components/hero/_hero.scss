@@ -1,0 +1,48 @@
+@use '../../global';
+.hero {
+    &__inner {
+        display: block;
+    }
+    &__module {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 100%;
+        @include global.flex-center;
+        background-size: contain;
+        height: 400px;
+        text-decoration: none;
+        & .icon-right-arrow {
+            transition: transform .3s ease-in-out;
+
+        }
+        &:hover {
+            .icon-right-arrow {
+                transform: translateX(10px);
+            }
+        }
+    }
+    &__cta {
+        h2 {
+            margin-right: 1rem;
+        }
+        display: flex;
+        align-items: center;
+        font-size: 1.75rem;
+        color: #FFFFFF;
+        font-family: 'Canela-Regular', sans-serif;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .hero {
+        &__inner {
+            display: flex;
+        }
+        &__module {
+            flex: 0 0 50%;
+            height: 710px;
+            background-size: contain;
+        }
+    }
+}
